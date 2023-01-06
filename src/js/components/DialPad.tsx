@@ -12,13 +12,13 @@ export default function DialPad({ digit }: { digit: number }) {
                     key={num}
                     className={classNames(
                         "border p-2 flex flex-col justify-center items-center",
-                        { "font-bold shadow-inner bg-gray-100": num === digit }
+                        { "font-bold shadow-inner bg-gray-100 dark:bg-gray-800 text-emerald-500": num === digit }
                     )}
                 >
                     <p>{num}</p>
                     <p className="text-xs">
                         {[0, 1].includes(num) ? (
-                            "o_o"
+                            "✉️"
                         ) : (
                             Digits.charsFromDigit(num).join("")
                         )}

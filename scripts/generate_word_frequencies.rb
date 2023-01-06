@@ -17,4 +17,4 @@ word_freqencies =
       .each_with_object({}) { |word, hash| hash[word] = 1 }
   end
 
-File.write("src/word_freqencies.json", word_freqencies.to_json)
+File.write("src/assets/word_freqencies.json", word_freqencies.to_json)
