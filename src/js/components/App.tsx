@@ -3,12 +3,13 @@ import { Digits } from "../Digits"
 import WF from "../../assets/word_freqencies.json"
 import DialPad from "./DialPad"
 import classNames from "classnames"
+import { queryParam, setQueryParam } from "../query"
 
 const ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 const WordFrequencies = WF as { [key: string]: number }
 
 export default function App() {
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState(queryParam("input"))
     const [hoveredWord, setHoveredWord] = useState(null as string | null)
 
     const digits = Digits.fromString(input)
@@ -30,6 +31,8 @@ export default function App() {
     function selectedWord(): string | null {
         return hoveredWord || words[0]
     }
+
+    useEffect(() => { setQueryParam("input", input) }, [input])
 
     return (
         <div>
@@ -87,7 +90,7 @@ export default function App() {
                 <div className="flex flex-col gap-y-3 text-3xl">
                     {words.length > 0 ? (
                         <div className="flex flex-row gap-x-3">
-                            <div>phonewords:</div>
+                            <div>phoneword(s):</div>
                             <div>
                                 {words.map((word, index) => (
                                     <div
