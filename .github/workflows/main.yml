@@ -27,9 +27,9 @@ jobs:
     needs: build
 
     runs-on: ubuntu-latest
-      permissions:
-        pages: write      # to deploy to Pages
-        id-token: write   # to verify the deployment originates from an appropriate source
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
 
     steps:
       - name: artifact
