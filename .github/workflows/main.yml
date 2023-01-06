@@ -1,0 +1,42 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: set up Node
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18.12.1
+
+      - name: install
+        run: npm i
+
+      - name: build
+        run: npm run build
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+      permissions:
+        pages: write      # to deploy to Pages
+        id-token: write   # to verify the deployment originates from an appropriate source
+
+    steps:
+      - name: artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: dist
+
+      - name: deploy
+        uses: actions/deploy-pages@v1
