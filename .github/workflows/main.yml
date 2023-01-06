@@ -23,6 +23,12 @@ jobs:
       - name: build
         run: npm run build
 
+      - name: artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: dist
+
   deploy:
     needs: build
 
@@ -32,11 +38,5 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
 
     steps:
-      - name: artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: github-pages
-          path: dist
-
       - name: deploy
         uses: actions/deploy-pages@v1
