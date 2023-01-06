@@ -7,7 +7,7 @@ import classNames from "classnames"
 const WordFrequencies = WF as { [key: string]: number }
 
 export default function App() {
-    const [input, setInput] = useState("tiff")
+    const [input, setInput] = useState("")
     const [hoveredWord, setHoveredWord] = useState(null as string | null)
 
     const digits = Digits.fromString(input)
