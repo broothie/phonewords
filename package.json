@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "parcel serve src/index.html",
     "build": "parcel build src/index.html",
-    "generate": "ruby scripts/generate_word_frequencies.rb"
+    "generate": "ruby scripts/generate_word_frequencies.rb",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,9 @@
     "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
-    "process": "^0.11.10"
+    "@types/jest": "^29.2.5",
+    "jest": "^29.3.1",
+    "process": "^0.11.10",
+    "ts-jest": "^29.0.3"
   }
 }
