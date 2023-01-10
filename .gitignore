@@ -170,5 +170,8 @@ dist
 
 .dev.vars
 
+# IDEs
+.idea/
+
 # Custom
 data
