@@ -64,7 +64,7 @@ describe("Trie tests", () => {
         it("contains all words provided in construction", () => {
             const actual = myTrie.words().slice().sort();
             const expected = words.slice().sort();
-            expect(JSON.stringify(actual)).toBe(JSON.stringify(expected));
+            expect(actual).toEqual(expected);
         });
-    })
+    });
 });
