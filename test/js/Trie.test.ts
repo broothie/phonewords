@@ -66,5 +66,7 @@ describe("Trie tests", () => {
             const expected = words.slice().sort();
             expect(JSON.stringify(actual)).toBe(JSON.stringify(expected));
         });
-    })
+    });
+
+    describe("deadbeef", () => expect(1).toBe(2));
 });
